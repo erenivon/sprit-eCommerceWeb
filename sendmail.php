@@ -13,7 +13,6 @@ if ($message_field!=="") {
     $subject = "Callback! From the site -Triablo- was sent an message!";
     $message = file_get_contents('templates/message.html');
 
-    // Fill form
     $message = str_replace('{{ subject }}', $subject_field, $message);
     $message = str_replace('{{ name }}', $name_field, $message);
     $message = str_replace('{{ mail }}', $mail_field, $message);
@@ -23,12 +22,10 @@ if ($message_field!=="") {
     $subject = "Client order! From the site -Triablo- was sent an order!";
     $message = file_get_contents('templates/mail.html');
 
-    // Fill form
     $message = str_replace('{{ name }}', $name_field, $message);
     $message = str_replace('{{ mail }}', $mail_field, $message);
     $message = str_replace('{{ phone }}', $phone_field, $message);
 
-    // Add product list
     $tableRows = '';
     $products = json_decode($prod_list);
     foreach ($products as $index => $product) {
